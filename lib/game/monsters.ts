@@ -21,7 +21,6 @@ export interface MonsterDef {
 
 const PACK1_FRAME = 150;
 const PACK1_CROP = { x: 16, y: 10, w: 118, h: 134 };
-const BOSS_ID = "flying-eye";
 
 function pack1Clips(
   folder: string,
@@ -150,10 +149,42 @@ export const MONSTERS: MonsterDef[] = [
   },
 ];
 
+export const BOSS: MonsterDef = {
+  id: "fantasy-warrior",
+  name: "Warrior",
+  frame: 162,
+  crop: { x: 19, y: 42, w: 114, h: 59 },
+  scale: 92,
+  blend: "normal",
+  ground: 0,
+  idle: {
+    src: "/assets/characters/monsters/fantasy-warrior/Idle.png",
+    frames: 10,
+    fps: 8,
+    loop: true,
+  },
+  attack: {
+    src: "/assets/characters/monsters/fantasy-warrior/Attack.png",
+    frames: 7,
+    fps: 12,
+    loop: false,
+  },
+  hurt: {
+    src: "/assets/characters/monsters/fantasy-warrior/TakeHit.png",
+    frames: 3,
+    fps: 10,
+    loop: false,
+  },
+  death: {
+    src: "/assets/characters/monsters/fantasy-warrior/Death.png",
+    frames: 7,
+    fps: 8,
+    loop: false,
+  },
+};
+
 export function monsterForWave(wave: number, boss: boolean): MonsterDef {
-  if (boss) {
-    return MONSTERS.find((monster) => monster.id === BOSS_ID) ?? MONSTERS[0];
-  }
+  if (boss) return BOSS;
   const index = ((Math.max(1, wave) - 1) % MONSTERS.length + MONSTERS.length) % MONSTERS.length;
   return MONSTERS[index] ?? MONSTERS[0];
 }

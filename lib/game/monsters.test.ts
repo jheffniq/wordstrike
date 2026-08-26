@@ -15,7 +15,7 @@ describe("monsterForWave", () => {
     expect(monsterForWave(MONSTERS.length + 2, false).id).toBe("mimic");
   });
 
-  it("keeps Flying Eye as the boss", () => {
-    expect(monsterForWave(1, true).id).toBe("flying-eye");
+  it("uses the Fantasy Warrior as the boss", () => {
+    expect(monsterForWave(1, true).id).toBe("fantasy-warrior");
   });
 });

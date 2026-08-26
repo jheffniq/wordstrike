@@ -25,7 +25,7 @@ export function Enemy({
   reducedMotion,
 }: EnemyProps) {
   const monster = monsterForWave(wave, boss);
-  const size = boss ? "size-[min(28vw,40vh)]" : "size-[min(25vw,36vh)]";
+  const size = boss ? "size-[min(28vw,40vh)] translate-x-[18%]" : "size-[min(25vw,36vh)]";
 
   return (
     <div

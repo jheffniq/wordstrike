@@ -167,7 +167,7 @@ export function MonsterSprite({
         } ${hit && !reducedMotion ? "animate-monster-flash" : ""}`}
         key={hitToken}
         style={{
-          bottom: `-${monster.ground}%`,
+          bottom: `${-monster.ground}%`,
           width: monster.crop.w,
           height: monster.crop.h,
           transform: `translateX(-50%) scaleX(-1) scale(calc(100cqmin / ${monster.scale}px))`,
